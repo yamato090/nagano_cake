@@ -19,5 +19,4 @@ class Customer < ApplicationRecord
   def full_name_no_blanks
     last_name + first_name
   end
-  
 end
