@@ -18,14 +18,16 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
   devise_for :customer, skip:[:passwords], controllers:{
+    registrations: "customer/registrations",
     sessions: "customer/sessions"
   }
 
   scope module: :public do
     get "/about", to: "homes#about"
-    get "/customer/quit", to: "customers#quit"
-    patch "/customer/out", to: "customers#out"
-    resources :customer, only:[:show, :edit, :update]
+    get "/customers/quit", to: "customers#quit"
+    get "/customers", to: "customers#show"
+    patch "/customers/out", to: "customers#out"
+    resources :customers, only:[:edit, :update]
     resources :products, only:[:index, :show]
     resources :cart_products, except:[:show, :new, :edit]
     delete "/cart_products", to: "cart_products#destroy_all"
