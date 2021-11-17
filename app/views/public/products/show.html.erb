@@ -47,10 +47,14 @@
     </div>
 
     <div class="row mt-3">
-      <div class="col-6">個数選択　ドロップ</div>
-      <div class="col-6">
-        <%= link_to "カートに入れる", cart_products_path, class: "btn btn-success" %>
-      </div>
+      <%= form_with model: @product, url: cart_products_path, local: true do |f| %>
+        <!--<div class="col-6">-->
+          <%= f.select :quantity, [["1","1"], ["2","2"], ["3","3"], ["4","4"], ["5","5"], ["6","6"], ["7","7"], ["8","8"], ["9","9"], ["10","10"]], include_blank: "個数" %>
+        <!--</div>-->
+        <!--<div class="col-6">-->
+          <%= f.submit "カートに入れる", class: "btn btn-success" %>
+        <!--</div>-->
+      <% end %>
     </div>
   </div>
 </div>
