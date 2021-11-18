@@ -53,35 +53,35 @@ Admin.create!(
   # 商品
   Product.create!(
     genre_id: 1,
-    name: "カップケーキ",
-    detail: "3個入り",
-    image: File.open("#{Rails.root}/app/assets/images/apple_pie.jpeg"),
+    name: "アップルケーキ",
+    detail: "青森の高級りんごを贅沢に使用しています。",
+    image: File.open("#{Rails.root}/app/assets/images/apple_cake.jpg"),
     is_active: true,
     tax_excluded_price: 1000
   )
   Product.create!(
     genre_id: 1,
-    name: "ショートケーキ",
-    detail: "おいしいいいいい！",
-    image: File.open("#{Rails.root}/app/assets/images/caramel_cookie.jpeg"),
+    name: "カラフルキャンディー",
+    detail: "味はグレープ・レモン・メロン・ピーチの4種類です。",
+    image: File.open("#{Rails.root}/app/assets/images/candy.jpg"),
     is_active: true,
     tax_excluded_price: 500
   )
   Product.create!(
     genre_id: 1,
-    name: "ミルフィーユ",
-    detail: "いちごいっぱいだよ",
-    image: File.open("#{Rails.root}/app/assets/images/Dacquoise.jpeg"),
+    name: "マカロン",
+    detail: "当店の焼き菓子の中で一番人気の商品です。",
+    image: File.open("#{Rails.root}/app/assets/images/makaron.jpg"),
     is_active: true,
-    tax_excluded_price: 600
+    tax_excluded_price:1000
   )
   Product.create!(
     genre_id: 2,
-    name: "キャンディー",
-    detail: "マカロン",
-    image: File.open("#{Rails.root}/app/assets/images/Maritozzo.jpeg"),
+    name: "カスタードプリン",
+    detail: "濃厚なキャラメルソースを贅沢に使用しています。",
+    image: File.open("#{Rails.root}/app/assets/images/pudding.jpg"),
     is_active: true,
-    tax_excluded_price: 300
+    tax_excluded_price: 500
   )
 
   15.times do |n|
@@ -105,4 +105,3 @@ Admin.create!(
       created_at: (15 - n).day.ago
     )
   end
-
