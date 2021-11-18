@@ -1,11 +1,11 @@
   <h3 class="ml-5 mb-5">マイページ</h3>
   
   <div class="row">
-    <p class="font-weight-bold col-2">登録情報</p>
+    <h5 class="font-weight-bold col-2 m-0 align-self-center">登録情報</h5>
     <div class="col-5"><%= link_to "編集する", edit_customers_path ,class:"btn btn-success"%></div>
   </div>
   
-  <table class="table table-light table-bordered col-md-8 mt-3">
+  <table class="table table-bordered col-md-8 mt-3">
     <tr>
       <td class="table-active">氏名</td>
       <td><%= @customer.full_name %></td>
@@ -37,11 +37,11 @@
   </table>
   
   <div class="row pt-3">
-    <p class="font-weight-bold col-2">配送先</p>
+    <h5 class="font-weight-bold col-2 m-0 align-self-center">配送先</h5>
     <div class="col-5"><%= link_to "一覧を見る", deliveries_path ,class:"btn btn-primary"%></div>
   </div>
   
   <div class="row pt-3">
-    <p class="font-weight-bold col-2">注文履歴</p>
+    <h5 class="font-weight-bold col-2 m-0 align-self-center">注文履歴</h5>
     <div class="col-5"><%= link_to "一覧を見る", orders_path ,class:"btn btn-primary"%></div>
   </div>
