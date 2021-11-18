@@ -1,28 +1,10 @@
 <h3 class="ml-5">配送先登録/一覧</h3>
 
-<!--新規入力-->
-<%= form_with model: @delivery ,local: true do |f| %>
-  <div class="row form-group pt-3">
-    <div class="col-md-3"><%= f.label :postal_code,"郵便番号（ハイフンなし）"%></div>
-    <div class="col-md-4"><%= f.text_field :postal_code, autofocus: true, placeholder:"0000000" ,class:"form-control"%></div>
-  </div>
-  
-  <div class="row form-group">
-    <div class="col-md-3"><%= f.label :address,"住所" %></div>
-    <div class="col-md-7"><%= f.text_area :address, placeholder:"東京都渋谷区代々木神園町0-0" ,class:"form-control"%></div>
-  </div>
-  
-  <div class="row form-group">
-    <div class="col-md-3"><%= f.label :name,"宛名"%></div>
-    <div class="col-md-4 mb-2"><%= f.text_field :name, placeholder:"令和道子" ,class:"form-control"%></div>
-    <div class="visible-xs" ,style:"height:20px;"></div>
-    <div class="col-md-4 text-right">
-      <%= f.submit "新規登録" ,class:"btn btn-success" ,style:"width:150px"%>
-    </div>
-  </div>
-<%end%>
+<!--登録-->
+<%= render 'form', delivery: @delivery %>
 
-<table class="table table-bordered table-light mt-5 col-12">
+<!--一覧-->
+<table class="table table-bordered mt-5 col-12">
   <thead class="table-active">
     <tr>
       <th>郵便番号</th>

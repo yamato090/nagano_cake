@@ -28,17 +28,11 @@ class Customer::SessionsController < Devise::SessionsController
   # end
 
   def customer_state
-    @customer = Customer.find_by(email: parms[:customer][:email])
+    @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer
-    if @customer.valid_password?(params[:customer][:password])
-      ## 【処理内容3】
-      # if customer.nil?
-      #   redirect_to new_customer_session_path
-      # elsif customer.is_deleted == true
-      #   flash[:notice] = "退会済みのアカウントです"
-      #   redirect_to new_customer_session_path
-      # end
+    if (@customer.valid_password?(params[:customer][:password])) && (@customer.is_deleted == true)
+      flash[:notice] = "このアカウントは退会済みです。新規登録を行ってください。"
+      redirect_to new_customer_registration_path
     end
   end
-  
 end
