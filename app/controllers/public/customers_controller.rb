@@ -39,7 +39,8 @@ class Public::CustomersController < ApplicationController
                                      :address, 
                                      :phone_number, 
                                      :email, 
-                                     :is_deleted)
+                                     :is_deleted
+                                    )
   end
   
 end
