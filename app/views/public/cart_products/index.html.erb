@@ -9,7 +9,7 @@
   <p>商品を追加してください<p>
 <% else %>
   <div class="row pt-5">
-    <table class="table">
+    <table class="table shadow-sm">
       <thead>
         <tr>
           <th>商品名</th>
@@ -23,7 +23,7 @@
         <% @cart_products.each do |cart| %>
           <tr>
             <td>
-              <%= attachment_image_tag cart.product,:image,:fill, 100, 80 %>
+              <%= attachment_image_tag cart.product,:image,:fill, 100, 80, class:"shadow-lg"%>
               <%= "　#{cart.product.name}" %>
             </td>
             <td><%= cart.product.add_tax_included_price.to_s(:delimited) %></td>
