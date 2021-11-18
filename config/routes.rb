@@ -25,9 +25,8 @@ Rails.application.routes.draw do
   scope module: :public do
     get "/about", to: "homes#about"
     get "/customers/quit", to: "customers#quit"
-    get "/customers", to: "customers#show"
     patch "/customers/out", to: "customers#out"
-    resources :customers, only:[:edit, :update]
+    resource :customers, only:[:show, :edit, :update]
     resources :products, only:[:index, :show]
     resources :cart_products, except:[:show, :new, :edit]
     delete "/cart_products", to: "cart_products#destroy_all"
