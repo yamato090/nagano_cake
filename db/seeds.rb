@@ -60,7 +60,7 @@ Admin.create!(
     tax_excluded_price: 1000
   )
   Product.create!(
-    genre_id: 1,
+    genre_id: 2,
     name: "カラフルキャンディー",
     detail: "味はグレープ・レモン・メロン・ピーチの4種類です。",
     image: File.open("#{Rails.root}/app/assets/images/candy.jpg"),
@@ -68,7 +68,7 @@ Admin.create!(
     tax_excluded_price: 500
   )
   Product.create!(
-    genre_id: 1,
+    genre_id: 3,
     name: "マカロン",
     detail: "当店の焼き菓子の中で一番人気の商品です。",
     image: File.open("#{Rails.root}/app/assets/images/makaron.jpg"),
@@ -76,7 +76,7 @@ Admin.create!(
     tax_excluded_price:1000
   )
   Product.create!(
-    genre_id: 2,
+    genre_id:4,
     name: "カスタードプリン",
     detail: "濃厚なキャラメルソースを贅沢に使用しています。",
     image: File.open("#{Rails.root}/app/assets/images/pudding.jpg"),

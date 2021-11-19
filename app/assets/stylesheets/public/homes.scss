@@ -4,7 +4,6 @@
 
 .image1 {
   background-image: image-url("fruit.jpg");
-  opacity: 0.9;
   background-size: cover;
   background-position: center;
 }
@@ -39,6 +38,7 @@
 
 #top-message{
   color: black;
+  background-color: #ffebcd;
   font-weight: 1000;
   text-decoration: underline;
 }
