@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20211116034342) do
     t.integer  "order_id",                       null: false
     t.integer  "quantity",                       null: false
     t.integer  "making_status",      default: 0, null: false
-    t.integer  "tax_included_price",             null: false
+    t.integer  "detail",             null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
