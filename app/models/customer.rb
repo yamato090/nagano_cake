@@ -21,6 +21,6 @@ class Customer < ApplicationRecord
   end
 
   def full_address
-    "〒" + self.postal_code + "  " + self.address
+    "〒" + self.postal_code + "  " + self.address + last_name + " " + first_name
   end
 end
