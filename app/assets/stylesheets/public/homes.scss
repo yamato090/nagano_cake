@@ -1,3 +1,48 @@
 // Place all the styles related to the public/homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.image1 {
+  background-image: image-url("fruit.jpg");
+  opacity: 0.9;
+  background-size: cover;
+  background-position: center;
+}
+
+.image2 {
+  background-image: image-url("cake.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image3 {
+  background-image: image-url("tart.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image4 {
+  background-image: image-url("maritozzo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.image5 {
+  background-image: image-url("triangle_apple_pie.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#container{
+  height: 450px;
+}
+
+#top-message{
+  color: black;
+  font-weight: 1000;
+  text-decoration: underline;
+}
+
+.about-image{
+  width: 50%;
+}
