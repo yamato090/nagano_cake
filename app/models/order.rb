@@ -27,12 +27,16 @@ class Order < ApplicationRecord
   end
 
   def order_products_total_price
-    (self.total_price - self.postage).round
+    (total_price - 800).round
   end
 
   def order_products_total_quantity
     self.order_products.sum(:quantity)
   end
+  
+  
+  after_create :move_cart_products
+  after_update :check_order_detail
 
   private
 
@@ -44,13 +48,13 @@ class Order < ApplicationRecord
         quantity: cart_product.quantity
       }
     end
-    self.order_products.create(cart_products_list)
+    self.order_details.create(cart_products_list)
     self.customer.cart_products.destroy_all
   end
 
-  def check_order_status
-    if self.order_status == "confirmed_payment"
-      self.order_products.update_all(make_status: "wating_for_make")
+  def check_order_detail
+    if self.order_detail == "confirmed_payment"
+      self.order_products.update_all(making_status: "wating_for_make")
     end
   end
  

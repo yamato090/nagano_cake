@@ -12,11 +12,11 @@ class Public::OrdersController < ApplicationController
 
     receiver =
     case @address_type = params[:address_type].to_i
-    when 1 # ご自身の住所
+    when 1
       current_customer
-    when 2 # 登録済み住所から選択
+    when 2
       current_customer.deliveries.find(params[:delivery_id])
-    when 3 # 新しいお届け先
+    when 3
       @delivery = current_customer.deliveries.new(delivery_params)
       unless @delivery.save
         flash[:alert] = '住所が正しくありません'
@@ -36,9 +36,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = current_customer.orders.order(created_at: :desc)
   end
 
   def show
+    @order = current_customer.orders.find(params[:id])
+    @order.postage = 800
   end
 
   def complete
