@@ -1,10 +1,10 @@
 <%= form_with url: product_search_path, method: :get, local: true do |f| %>
   <div class="input-group">
-    <%= f.text_field :keyword, placeholder: "Search", class: "form-control" %>
+    <%= f.text_field :keyword, placeholder: "キーワード", class: "form-control" %>
     
     <span class="input-group-append">
-    <%= button_tag type: 'submit', class: "btn btn-light" do %>
-      <i class="fas fa-search"></i>
+    <%= button_tag type: 'submit', class: "btn btn-outline-light ml-2" do %>
+      <i class="fas fa-search">Search</i>
     <% end %>
     </span>
   </div>
