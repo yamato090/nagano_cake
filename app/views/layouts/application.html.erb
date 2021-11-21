@@ -15,6 +15,10 @@
         <div class="container">
           <div><%= link_to image_tag("logo.png", size: "63x50"), root_path %></div>
 
+          <% if customer_signed_in? %>
+            <p class="p-3 m-0 text-light">ようこそ、<%= current_customer.last_name %>さん！</p>
+          <%end%>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
