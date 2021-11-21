@@ -1,11 +1,24 @@
 <div class="row">
-  <div class="col-md-8 ">
-    <div class="top row mr-auto">
-      <%= image_tag "top.jpg" , class:"topimage" %>
-      <p class="text-right">ようこそ、ながのCAKEへ！<br/>
-      このサイトは、ケーキ販売のECサイトになります。<br/>
-      会員でない方も商品の閲覧はできますが、<br/>
-      購入には会員登録が必要になります。</p>
+  <div class="col-md-2 mr-5">
+    <%= render "public/searches/genre_sidebar", genres: @genres %>
+  </div>
+
+  <div class="col-md5 ml-auto ">
+
+    <div id="container">
+      <div id="theTarget">
+        <div class="image1">
+          <p class="text-center",pt-5 id="top-message">
+          ようこそ、ながのCAKEへ！<br/>
+          このサイトは、ケーキ販売のECサイトになります。<br/>
+          会員でない方も商品の閲覧はできますが、<br/>
+          購入には会員登録が必要になります。</p>
+        </div>
+        <div class="image2"></div>
+        <div class="image3"></div>
+        <div class="image4"></div>
+        <div class="image5"></div>
+      </div>
     </div>
 
     <h3 class="mt-5">新着商品</h3>

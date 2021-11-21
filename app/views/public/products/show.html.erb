@@ -1,58 +1,28 @@
-<h3 class="offset-1">商品詳細</h3>
+<div class="row">
+  <div class=" col-md-3 mr-3">
+    <%= render "public/searches/genre_sidebar", genres: @genres %>
+  </div>
 
-<div class="container-fluid">
-  <div class="row mt-3">
-    <div class="col-2 mt-5">
-      <table class="table table-light">
-        <thead class="table-active text-center">
-          <tr>
-            <th>ジャンル検索（検索機能は未実装）</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @genres.each do |genre| %>
-          <tr>
-            <td><%= genre.name %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+  <div class="col-md-4 mr-1">
+    <%= attachment_image_tag @product, :image, :fill, 300, 250 %>
+  </div>
+  
+  <div class="col-md-4 ">
+    <h4 class="font-weight-bold"><%= @product.name %></h4>
+    <div class="my-3"><%= @product.detail%></div>
+    <div class="font-weight-bold">
+      <span style="font-size:30px;">¥<%= @product.add_tax_included_price.to_s(:delimited) %></span>
+      （税込）
     </div>
-
-
-  <div class="col-10 mt-3">
-<div class="row offset-1 mt-5">
-  <div class="col-lg-5"><%= attachment_image_tag @product, :image, :fill, 250, 200 %></div>
-
-  <div class="col-lg-7">
-    <div class="row">
-      <div class="col">
-        <%= @product.name %>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= @product.detail %>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= @product.genre.name %>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col">
-        <%= @product.add_tax_included_price.to_s(:delimited) %>（税抜）円
-      </div>
-    </div>
-
-    <div class="row mt-3">
+    
+    <div class="mt-3">
     <% if customer_signed_in? %>
       <% if @product.is_active? %>
+          
         <%= form_with model: @cart_product, url: cart_products_path, method: :post, local: true do |f| %>
           <%= f.select :quantity, options_for_select((1..99).to_a), include_blank: "個数選択" %>
-          <%= f.hidden_field :product_id, value: @product.id %>
-          <%= f.submit "カートに入れる", class: "btn btn-success" %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.submit "カートに入れる" ,class:"btn btn-success btn-sm ml-5"%>
         <% end %>
       <% else %>
         <div>売切れ</div>
@@ -60,9 +30,3 @@
     <% end %>
     </div>
   </div>
-</div>
-
-
-  </div>
-  </div>
-</div>

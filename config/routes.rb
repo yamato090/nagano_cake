@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # 管理者側のルーティング設定
-    devise_for :admin, skip:[:registrations, :passwords], controllers:{
+  devise_for :admin, skip:[:registrations, :passwords], controllers:{
     sessions: "admin/sessions"
   }
 
@@ -37,5 +37,9 @@ Rails.application.routes.draw do
       end
     end
     resources :deliveries, except:[:new, :show]
+    
+    # 検索機能
+    get '/genre_search', to: "searches#genre_search"
+    get '/product_search', to: "searches#product_search"
   end
 end
