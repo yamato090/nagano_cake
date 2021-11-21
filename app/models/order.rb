@@ -53,7 +53,7 @@ class Order < ApplicationRecord
   end
 
   def check_order_detail
-    if self.order_detail == "confirmed_payment"
+    if self.order_details == "confirmed_payment"
       self.order_products.update_all(making_status: "wating_for_make")
     end
   end

@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(version: 2021_11_20_075541) do
   end
 
   create_table "order_details", force: :cascade do |t|
-
     t.integer "product_id", null: false
     t.integer "order_id", null: false
     t.integer "quantity", null: false
@@ -88,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_11_20_075541) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postage"
+    t.integer "postage", default: 800
   end
 
   create_table "products", force: :cascade do |t|
