@@ -3,7 +3,7 @@ class CartProduct < ApplicationRecord
   belongs_to :customer
 
 
-  def total_price
+  def sum_of_price
     product.add_tax_included_price * quantity
   end
 end
