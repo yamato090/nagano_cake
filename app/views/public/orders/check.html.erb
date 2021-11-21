@@ -1,11 +1,11 @@
 <div class="row offset-">
   <h3>注文情報確認</h3>
 </div>
-<div class="row">
+<div class="row pt-5">
   <div class="col-md-8">
-    <table class="table">
+    <table class="table table-light table-borderless border">
       <thead class="table-active">
-        <tr>
+        <tr class="text-white bg-dark">
           <th>商品名</th>
           <th>単価(税込)</th>
           <th>数量</th>
@@ -15,13 +15,13 @@
       <tbody>
         <% @order.customer.cart_products.each do |cart_product| %>
           <tr>
-            <td>
+            <td class="align-middle">
               <%= attachment_image_tag cart_product.product,:image,:fill, 60, 50 %>
               <%= cart_product.product.name %>
-            </td>
-            <td><%= cart_product.product.add_tax_included_price.to_s(:delimited) %></td>
-            <td><%= cart_product.quantity %></td>
-            <td><%= cart_product.sum_of_price.to_s(:delimited) %></td>
+            </td class="align-middle">
+            <td class="align-middle"><%= cart_product.product.add_tax_included_price.to_s(:delimited) %></td>
+            <td class="align-middle"><%= cart_product.quantity %></td>
+            <td class="align-middle"><%= cart_product.sum_of_price.to_s(:delimited) %></td>
           </tr>
         <% end %>
       </tbody>
@@ -29,18 +29,18 @@
   </div>
 
   <div class="col-sm-4 col-md-4 ml-auto">
-    <table class="table table-bordered table-light">
+    <table class="table table-light table-borderless border">
       <tbody>
         <tr>
-          <th class="table-active">送料</th>
+          <th class="text-white bg-dark">送料</th>
           <td><%= @order.postage.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th class="table-active">商品合計</th>
+          <th class="text-white bg-dark">商品合計</th>
           <td><%= current_customer.cart_products_total_price.to_s(:delimited) %></td>
         </tr>
         <tr>
-          <th class="table-active">請求金額</th>
+          <th class="text-white bg-dark">請求金額</th>
           <td><%= @order.total_price.to_s(:delimited) %></td>
         </tr>
       </tbody>

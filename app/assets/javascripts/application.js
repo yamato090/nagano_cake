@@ -18,16 +18,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-// ジャンルのマウスオーバー
-$(function() {
-  $('.genre_mouse_over').mouseover(function() {
-    $(this).css('background', '#EEEEEE');
-  });
-  $('.genre_mouse_over').mouseout(function(){
-    $(this).css('background', '#FFFFFF');
-  });
-});
-
 $(document).ready(function () {
   $("#theTarget").skippr({
     transition : 'fade',
