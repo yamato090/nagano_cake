@@ -7,7 +7,7 @@
   
   <tbody>
     <% genres.each do |genre| %>
-      <tr>
+      <tr class="text-center">
         <td>
         <%= link_to genre_search_path('search[value]': genre.name, 'search[how]': "match"), class: "text-reset text-decoration-none" do %>
             <div class="px-3"><%= genre.name =%></div>
