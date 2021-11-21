@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+
   def new
     @order = current_customer.orders.new
     @delivery = Delivery.new
@@ -29,7 +31,7 @@ class Public::OrdersController < ApplicationController
     end
     @order.set_receiver(receiver)
   end
-  
+
   def create
     current_customer.orders.create(order_params)
     redirect_to complete_orders_path
@@ -47,14 +49,12 @@ class Public::OrdersController < ApplicationController
   def complete
   end
 
-
-
   private
 
   def order_params
     params.require(:order).permit(:name, :payment_method, :postal_code, :address, :total_price)
   end
-  
+
   def delivery_params
     params.permit(:name,:address,:postal_code)
   end
