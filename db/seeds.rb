@@ -99,7 +99,7 @@ Admin.create!(
       name: "山田花子",
       address: "東京都渋谷区ちぇるちぇるランド",
       postal_code: "0000000",
-      total_price: "10800",
+      total_price: "2200",
       payment_method: 0,
       status: 4,
       created_at: (15 - n).day.ago
