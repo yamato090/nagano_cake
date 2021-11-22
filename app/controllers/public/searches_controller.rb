@@ -3,7 +3,7 @@ class Public::SearchesController < ApplicationController
     @genres = Genre.all
     @value = params["search"]["value"]
     @how = params["search"]["how"]
-    @datas = search_for(@how, @value)
+    @datas = search_for(@how, @value).page(params[:page]).per(8)
   end
 
   def product_search
