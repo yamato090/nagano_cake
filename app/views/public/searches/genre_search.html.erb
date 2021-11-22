@@ -1,15 +1,19 @@
 <div class="row">
-  <div class="col-sm-10 col-md-3 ">
+  <div class="col-md-1 "></div>
+  <div class="col-sm-10 col-md-2 ">
     <%= render "public/searches/genre_sidebar", genres: @genres %>
   </div>
 
   <div class="col-sm-10 col-md-8 ml-3">
-    <h3><%= @value %>一覧</h3>
 
     <% if @datas.empty? %>
+      <h3><%= @value %>一覧</h3>
       <div class="text-center pt-5">該当商品はありません</div>
     <% else %>
-      <div>（検索結果: <%= @datas.count %>件）</div>
+      <h3>
+        "<%= @value %>"の検索結果
+        <span style="font-size:20px;">（全<%= @datas.count %>件）</span>
+      </h3>
       
       <div class="card-list-container row pt-5">
         <% @datas.each do |data| %>
@@ -23,7 +27,7 @@
             </div>
           </div>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

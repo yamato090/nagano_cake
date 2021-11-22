@@ -40,3 +40,15 @@ h3{
 .navbar-nav{
   background-color: #8b4513;
 }
+
+.pagination {
+  justify-content: left;
+  & a {
+  border: none;   
+  color: #696969;
+  }
+}
+
+#error_explanation{
+ color: red; 
+}

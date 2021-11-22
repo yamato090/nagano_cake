@@ -12,7 +12,10 @@
       </h3>
       
       <%= render "public/products/index", products: @products %>
-      <%= paginate @products %>
+      
+      <div class="mt-5">
+        <%= paginate @products, theme: 'twitter-bootstrap-4' %>
+      </div>
     </div>
     
   </div>
