@@ -24,7 +24,7 @@ class Public::CartProductsController < ApplicationController
 
   def update
     @cart_product = CartProduct.find(params[:id])
-    @cart_product.update(cart_product_params)
+    @cart_product.update(cart_product_update_params)
     redirect_to cart_products_path, notice: '数量を変更しました'
   end
 
@@ -40,7 +40,14 @@ class Public::CartProductsController < ApplicationController
     redirect_to cart_products_path,notice: '全ての商品を削除しました'
   end
 
+  private
+
   def cart_product_params
+    params.permit(:product_id,:quantity)
+  end
+
+  def cart_product_update_params
     params.require(:cart_product).permit(:product_id,:quantity)
   end
+  
 end
