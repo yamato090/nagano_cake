@@ -9,7 +9,10 @@ class Public::CartProductsController < ApplicationController
       @cart_product = current_customer.cart_products.new(cart_product_params)
     end
 
-    if @cart_product.save
+    if @cart_product.quantity.nil?
+      flash[:alert] = '数量を選択して下さい'
+      redirect_to request.referer
+    elsif  @cart_product.save
       redirect_to cart_products_path, notice: '商品を追加しました'
     else
       flash[:alert] = '商品を追加できませんでした'
@@ -49,5 +52,5 @@ class Public::CartProductsController < ApplicationController
   def cart_product_update_params
     params.require(:cart_product).permit(:product_id,:quantity)
   end
-  
+
 end
