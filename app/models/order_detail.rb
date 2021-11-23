@@ -1,4 +1,6 @@
 class OrderDetail < ApplicationRecord
+  after_update :check_making_status
+
   belongs_to :product
   belongs_to :order
 
@@ -9,14 +11,15 @@ class OrderDetail < ApplicationRecord
   end
 
   private
-  def order_making_status
+
+  def check_making_status
     if self.making_status == "making"
-      self.order.update(order_detail: "making")
+      self.order.update(status: "making")
     elsif self.making_status == "completed"
-      if self.order.order_products.all? { |order_product| order_product.making_status == "completed" }
-        self.order.update(order_detail: "preparing_to_ship")
+      if self.order.order_details.all? { |order_detail| order_detail.making_status == "completed" }
+        self.order.update(status: "ready_to_ship")
       end
     end
   end
-  
+
 end
