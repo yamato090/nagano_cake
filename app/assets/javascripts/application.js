@@ -31,4 +31,12 @@ $(document).ready(function () {
     keyboardOnAlways : true,
     hidePrevious : false
   });
+
+  $(function() {
+  $('.menu-trigger').on('click', function(event) {
+    $(this).toggleClass('active');
+    event.preventDefault();
+  });
+});
+
 });
