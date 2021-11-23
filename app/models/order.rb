@@ -1,4 +1,6 @@
 class Order < ApplicationRecord
+  after_update :check_order_detail
+
    belongs_to :customer
    has_many :order_details, dependent: :destroy
 
@@ -14,8 +16,8 @@ class Order < ApplicationRecord
       credit_card: 0,
       transfer: 1
    }
-   
-   
+
+
   def set_receiver(receiver)
     self.address = receiver.address
     self.postal_code = receiver.postal_code
@@ -33,8 +35,8 @@ class Order < ApplicationRecord
   def order_products_total_quantity
     self.order_products.sum(:quantity)
   end
-  
-  
+
+
   after_create :move_cart_products
   after_update :check_order_detail
 
@@ -53,9 +55,9 @@ class Order < ApplicationRecord
   end
 
   def check_order_detail
-    if self.order_details == "confirmed_payment"
-      self.order_products.update_all(making_status: "wating_for_make")
+    if self.status == "confirmed_payment"
+      self.order_details.update_all(making_status: "wating_for_make")
     end
   end
- 
+
 end
