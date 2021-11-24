@@ -53,6 +53,51 @@ h3{
  color: red;
 }
 
+
+.top-img{
+    /*キラッと光る基点とするためrelativeを指定*/
+  position: relative;
+    /*ボタンの形状*/
+
+}
+
+/*キラッと光る*/
+.top-img::before {
+  content: '';
+    /*絶対配置でキラッと光るの位置を決める*/
+  position: absolute;
+  top: 0;
+  left: -75%;
+    /*キラッと光る形状*/
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.5) 100%);
+  transform: skewX(-25deg);
+  z-index: 10;
+  opacity: 0;
+}
+
+/*hoverした際の移動のアニメーション*/
+.top-img:hover::before {
+  animation: shine 1.1s;
+}
+
+
+@keyframes shine {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+
+  }
+  100% {
+    left: 125%;
+    opacity: 1;
+  }
+}
+
+
 @media screen and (max-width: 1023px) {
   .menu-trigger,
   .menu-trigger span {
