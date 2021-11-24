@@ -60,6 +60,7 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 
 gem 'kaminari','~> 1.2.1'
+gem 'bootstrap4-kaminari-views'
 
 gem 'pry-byebug'
 gem 'rubocop-airbnb'

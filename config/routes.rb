@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   # 管理者側のルーティング設定
-    devise_for :admin, skip:[:registrations, :passwords], controllers:{
+  devise_for :admin, skip:[:registrations, :passwords], controllers:{
     sessions: "admin/sessions"
   }
 
@@ -18,14 +18,15 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
   devise_for :customer, skip:[:passwords], controllers:{
+    registrations: "customer/registrations",
     sessions: "customer/sessions"
   }
 
   scope module: :public do
     get "/about", to: "homes#about"
-    get "/customer/quit", to: "customers#quit"
-    patch "/customer/out", to: "customers#out"
-    resources :customer, only:[:show, :edit, :update]
+    get "/customers/quit", to: "customers#quit"
+    patch "/customers/out", to: "customers#out"
+    resource :customers, only:[:show, :edit, :update]
     resources :products, only:[:index, :show]
     resources :cart_products, except:[:show, :new, :edit]
     delete "/cart_products", to: "cart_products#destroy_all"
@@ -36,5 +37,9 @@ Rails.application.routes.draw do
       end
     end
     resources :deliveries, except:[:new, :show]
+    
+    # 検索機能
+    get '/genre_search', to: "searches#genre_search"
+    get '/product_search', to: "searches#product_search"
   end
 end
