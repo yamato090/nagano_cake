@@ -3,8 +3,7 @@
 ![](https://github.com/Glass-Tech/nagano_cake/blob/develop/app/assets/images/logo.png)
 
 ### [概要]
-長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイト開発。
-___
+長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するための
  
 ### [背景]
 元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るよう になった。
